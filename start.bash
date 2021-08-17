@@ -13,7 +13,7 @@ then
 fi
 
 echo "Disabling chrony on balena host:"
-dbus-send --system --print-reply --dest=org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager.StopUnit string:'chrony.service' string:'fail'
+dbus-send --system --print-reply --dest=org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager.StopUnit string:'chronyd.service' string:'fail'
 
 echo "Config file content:"
 cat "$CONFIG_FILE"
