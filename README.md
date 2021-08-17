@@ -20,7 +20,7 @@ Example usage in a docker-compose file:
       CONFIG_FILE_CONTENT: |
         pool pool.ntp.org iburst
         initstepslew 10 pool.ntp.org
-        driftfile /var/lib/chrony/chrony.drift
+        driftfile /data/chrony.drift
         rtcsync
         cmdport 0
 ```
