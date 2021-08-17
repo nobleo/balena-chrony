@@ -26,4 +26,4 @@ Example usage in a docker-compose file:
 ```
 
 ## See also
-https://github.com/nobleo/balena-chrony.git
+https://github.com/nobleo/avahi-alias-balena.git
