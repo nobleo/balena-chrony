@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if chrony socket dir is owned by chrony user and group
-if [ "$(stat -c '%u' /var/run/chrony)" != "chrony" ] || [ "$(stat -c '%g' /var/run/chrony)" != "chrony" ]; then
+if [ "$(stat -c '%U' /var/run/chrony)" != "chrony" ] || [ "$(stat -c '%G' /var/run/chrony)" != "chrony" ]; then
     echo "Chrony socket dir is not owned by chrony user, changing ownership"
     chown chrony:chrony /var/run/chrony
 fi
