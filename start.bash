@@ -12,6 +12,11 @@ then
     fi
 fi
 
+if [ -d /var/run/chrony ]; then
+    echo "Checking chrony socket dir ownership and permissions"
+    ./chrony_socket_config.bash
+fi
+
 echo "Disabling chrony on balena host:"
 ./systemd-stop-unit.bash chronyd.service
 
