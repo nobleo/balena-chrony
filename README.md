@@ -56,7 +56,5 @@ You can also share the chronyd socket via docker volume mounts to give other ser
     chrony-socket-dir: {}
 ```
 
-This requires correct ownership and permissions for that directory though, which are configured automatically on start of this image.
-
 ## See also
 https://github.com/nobleo/avahi-alias-balena.git
