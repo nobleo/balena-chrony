@@ -9,6 +9,7 @@ This image disables the chrony-config and runs an instance of chrony for which t
 Example usage in a docker-compose file, where port 323 is forwarded to be able to communicate with chronyd from outside the container:
 
 ```yaml
+services:
   balena-chrony:
     image: nobleo/balena-chrony
     cap_add:
@@ -31,6 +32,7 @@ Example usage in a docker-compose file, where port 323 is forwarded to be able t
 You can also share the chronyd socket via docker volume mounts to give other services full control of chrony. For example, execute a `chronyc makestep` from within another container:
 
 ```yaml
+services:
   balena-chrony:
     image: nobleo/balena-chrony
     cap_add:
@@ -52,8 +54,8 @@ You can also share the chronyd socket via docker volume mounts to give other ser
     volumes:
       - "chrony-socket-dir:/var/run/chrony/"
 
-  volumes:
-    chrony-socket-dir: {}
+volumes:
+  chrony-socket-dir: {}
 ```
 
 ## See also
