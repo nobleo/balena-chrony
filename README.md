@@ -58,5 +58,29 @@ volumes:
   chrony-socket-dir: {}
 ```
 
+### PTP with NTP Synchronisation
+To enable PTP synchronisation we can leverage the `timemaster` daemon. This uses ptp4l and phc2sys in combination with chronyd to synchronize the system clock to NTP and PTP time sources ([examples](https://www.redhat.com/en/blog/combining-ptp-ntp-get-best-both-worlds)).
+
+```yaml
+services:
+  balena-chrony:
+    image: nobleo/balena-chrony
+    network_mode: host  # Required for PTP
+    cap_add:
+      - SYS_TIME
+    labels:
+      io.balena.features.dbus: '1'
+    ports:
+      - "323:323/udp"
+    environment:
+      DBUS_SYSTEM_BUS_ADDRESS: unix:path=/host/run/dbus/system_bus_socket
+      TIME_SYNC_DAEMON: timemaster
+      CONFIG_FILE_CONTENT: |
+        [ptp_domain 0]
+        interfaces eth0
+
+        [ntp_server ntp.example.com]
+```
+
 ## See also
 https://github.com/nobleo/avahi-alias-balena.git
