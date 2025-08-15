@@ -33,7 +33,7 @@ fi
 
 # Set default behavior if no second argument provided
 if [ -z "$SLEEP_DURATION" ]; then
-	SLEEP_DURATION="-1"
+	SLEEP_DURATION=-1
 fi
 
 wait_for_dbus
@@ -65,7 +65,6 @@ while true; do
 			break
 		else
 			sleep "$SLEEP_DURATION"
-			break
 		fi
 	else
 		dbus-send --system \
