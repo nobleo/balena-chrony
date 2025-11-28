@@ -1,5 +1,7 @@
 # balena-chrony
 
+<https://github.com/nobleo/balena-chrony>
+
 Balena doesn't allow modifying the `/etc/chrony/chrony.conf` file.
 
 This image disables the chrony-config and runs an instance of chrony for which the config can be modified.
@@ -29,7 +31,9 @@ services:
 ```
 
 ### Advanced usage
-You can also share the chronyd socket via docker volume mounts to give other services full control of chrony. For example, execute a `chronyc makestep` from within another container:
+
+You can also share the chronyd socket via docker volume mounts to give other services full control of chrony.
+For example, execute a `chronyc makestep` from within another container:
 
 ```yaml
 services:
@@ -59,7 +63,9 @@ volumes:
 ```
 
 ### PTP with NTP Synchronisation
-To enable PTP synchronisation we can leverage the `timemaster` daemon. This uses ptp4l and phc2sys in combination with chronyd to synchronize the system clock to NTP and PTP time sources ([examples](https://www.redhat.com/en/blog/combining-ptp-ntp-get-best-both-worlds)).
+
+To enable PTP synchronisation we can leverage the `timemaster` daemon.
+This uses ptp4l and phc2sys in combination with chronyd to synchronize the system clock to NTP and PTP time sources ([examples](https://www.redhat.com/en/blog/combining-ptp-ntp-get-best-both-worlds)).
 
 ```yaml
 services:
@@ -83,4 +89,5 @@ services:
 ```
 
 ## See also
-https://github.com/nobleo/avahi-alias-balena.git
+
+<https://github.com/nobleo/avahi-alias-balena.git>
