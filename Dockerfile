@@ -1,4 +1,4 @@
-FROM balenalib/generic-alpine:latest
+FROM alpine:20250108
 
 # Until linuxptp reaches alpine stable
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
