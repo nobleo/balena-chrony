@@ -50,6 +50,7 @@ last_active_state=""
 while true; do
 	active_state=$(dbus-send --system \
 				 --print-reply \
+				 --type=method_call \
 				 --dest=org.freedesktop.systemd1 \
 				 $unit_path \
 				 org.freedesktop.DBus.Properties.Get \
@@ -68,6 +69,7 @@ while true; do
 		fi
 	else
 		dbus-send --system \
+			  --print-reply \
 			  --type=method_call \
 			  --dest=org.freedesktop.systemd1 \
 			  /org/freedesktop/systemd1 \
