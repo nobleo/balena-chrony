@@ -2,7 +2,7 @@ FROM alpine:20250108
 
 # Until linuxptp reaches alpine stable
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk --update --no-cache add bash chrony linuxptp
+RUN apk --update --no-cache add bash chrony dbus linuxptp
 RUN rm /etc/chrony/chrony.conf
 
 # Make sure permissions and ownership are correct already
