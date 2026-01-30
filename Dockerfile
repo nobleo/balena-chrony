@@ -1,4 +1,4 @@
-FROM alpine:20250108
+FROM alpine:3.23
 
 # Until linuxptp reaches alpine stable
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories

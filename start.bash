@@ -12,12 +12,12 @@ then
     fi
 fi
 
+echo "Config file content:"
+cat "$CONFIG_FILE"
+
 echo "Disabling chrony on balena host:"
 ./systemd-stop-unit.bash chronyd.service -1  # Wait until balena chrony is stopped
 ./systemd-stop-unit.bash chronyd.service 60 &  # Retry every minute just to be sure
-
-echo "Config file content:"
-cat "$CONFIG_FILE"
 
 : "${TIME_SYNC_DAEMON:=chronyd}"  # Default to chronyd if unset or empty
 
