@@ -8,7 +8,7 @@ then
         exit 1
     else
         CONFIG_FILE=/config.conf
-        echo "$CONFIG_FILE_CONTENT" > "$CONFIG_FILE"
+        echo -e "$CONFIG_FILE_CONTENT" > "$CONFIG_FILE"
     fi
 fi
 
