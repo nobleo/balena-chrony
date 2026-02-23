@@ -38,5 +38,5 @@ jobs:
        push: true
        platforms: linux/amd64, linux/arm64
        tags: |
-          nobleo/avahi-alias-balena:latest
-          nobleo/avahi-alias-balena:${{ env.CALVER }}
+          nobleo/balena-chrony:latest
+          nobleo/balena-chrony:${{ env.CALVER }}
