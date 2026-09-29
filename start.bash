@@ -19,6 +19,11 @@ echo "Disabling chrony on balena host:"
 ./systemd-stop-unit.bash chronyd.service -1  # Wait until balena chrony is stopped
 ./systemd-stop-unit.bash chronyd.service 60 &  # Retry every minute just to be sure
 
+# Make sure permissions and ownership are correct at startup, apperently this can get screwed up
+mkdir -p /var/run/chrony
+chown chrony:chrony /var/run/chrony
+chmod 750 /var/run/chrony
+
 : "${TIME_SYNC_DAEMON:=chronyd}"  # Default to chronyd if unset or empty
 
 if [ "$TIME_SYNC_DAEMON" = "chronyd" ];
